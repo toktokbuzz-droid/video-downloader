@@ -3,224 +3,223 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Video Downloader – YouTube, TikTok, Instagram & 1000+ Sites</title>
-  <meta name="description" content="Download videos from YouTube, TikTok, Instagram, Facebook, Twitter, Vimeo and 1000+ sites in HD for free. Fast, safe and no registration required."/>
+  <title>Free Video Downloader – YouTube, TikTok, Instagram & More</title>
+  <meta name="description" content="Download videos from YouTube, TikTok, Instagram, Facebook & 1000+ sites in HD with just one click. Fast, free, no signup!"/>
 
   <!-- SEO -->
-  <meta property="og:title" content="Free Video Downloader – YouTube, TikTok, Instagram & More" />
-  <meta property="og:description" content="Download any video in HD quality – completely free, no signup!" />
+  <meta property="og:title" content="Free Video Downloader – One Click HD Download" />
+  <meta property="og:description" content="Paste link → Click Download → Video saved instantly!" />
   <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- GOOGLE ADSENSE AUTO ADS (ON) – Sirf yeh ek baar lagana hai -->
+  <!-- Google AdSense Auto Ads (ON) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8700297475775171"
        crossorigin="anonymous"></script>
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-565656565651",
+            google_ad_client: "ca-pub-8700297475775171",
             enable_page_level_ads: true
        });
   </script>
 
   <style>
-    :root { --primary: #ff3366; }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       min-height: 100vh;
-      padding: 20px;
+      padding: 30px 20px;
+      text-align: center;
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+    .container { max-width: 1000px; margin: 0 auto; }
 
-    header h1 { font-size: 3rem; text-align: center; margin-bottom: 12px; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-    header p { text-align: center; font-size: 1.3rem; opacity: 0.9; margin-bottom: 50px; }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 50px;
+    }
 
     .card {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
       backdrop-filter: blur(16px);
       border-radius: 24px;
       padding: 50px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.15);
-      margin-bottom: 50px;
     }
 
-    .input-group {
-      display: flex; gap: 20px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; justify-content: center;
+    .input-box {
+      display: flex;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     #urlInput {
-      flex: 1; min-width: 320px; padding: 20px 28px; font-size: 1.2rem; border: none; border-radius: 50px;
-      background: rgba(255,255,255,0.2); color: white; outline: none;
+      flex: 1;
+      min-width: 300px;
+      padding: 20px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      outline: none;
     }
     #urlInput::placeholder { color: rgba(255,255,255,0.7); }
-    #goBtn {
-      padding: 20px 50px; background: var(--primary); color: white; border: none; border-radius: 50px;
-      font-weight: 600; font-size: 1.2rem; cursor: pointer;
+
+    #downloadBtn {
+      padding: 20px 60px;
+      background: #ff3366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      cursor: pointer;
       box-shadow: 0 10px 30px rgba(255,51,102,0.5);
+      transition: 0.3s;
     }
-    #goBtn:hover { transform: translateY(-5px); }
+    #downloadBtn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,51,102,0.6); }
+    #downloadBtn:active { transform: translateY(-2px); }
 
-    #status { text-align: center; font-size: 1.4rem; margin: 30px 0; min-height: 40px; }
-
-    .progress { display:none; height:12px; background:rgba(255,255,255,0.2); border-radius:50px; overflow:hidden; margin:30px auto; max-width:600px; }
-    .bar { height:100%; width:0%; background:linear-gradient(90deg,#ff3366,#ff6b9d); border-radius:50px; }
-
-    #preview { display:none; text-align:center; margin:60px 0; }
-    #thumb { border-radius:20px; max-width:90%; max-height:500px; box-shadow:0 25px 60px rgba(0,0,0,0.6); }
-    #videoTitle { margin:30px 0 25px; font-size:2rem; font-weight:600; }
-    .quality { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
-    .qbtn {
-      padding:18px 40px; background:rgba(255,255,255,0.15); border:2px solid rgba(255,255,255,0.3);
-      color:white; border-radius:50px; font-weight:600; cursor:pointer; transition:0.4s;
+    #status {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      min-height: 50px;
     }
-    .qbtn:hover { background:var(--primary); border-color:var(--primary); transform:scale(1.08); }
+
+    .loader {
+      display: none;
+      margin: 40px auto;
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(255,255,255,0.3);
+      border-top: 6px solid #ff3366;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     .platforms {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 70px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin: 80px 0;
     }
     .plat {
       background: rgba(255,255,255,0.15);
-      padding: 25px 35px;
-      border-radius: 20px;
-      width: 160px;
-      text-align: center;
-      transition: 0.4s;
+      padding: 20px 30px;
+      border-radius: 18px;
+      width: 150px;
       backdrop-filter: blur(10px);
     }
-    .plat:hover { transform: translateY(-12px); background: rgba(255,255,255,0.25); }
-    .plat img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 12px; }
+    .plat img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px; }
 
-    .how-to { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:35px; margin:80px 0; }
-    .step { background:rgba(255,255,255,0.1); padding:35px; border-radius:18px; text-align:center; }
-    .step-number { width:60px; height:60px; background:var(--primary); color:white; border-radius:50%; line-height:60px; font-size:1.8rem; margin:0 auto 25px; }
-
-    #themeToggle {
-      position: fixed; top:25px; right:25px; background:rgba(255,255,255,0.2); border:none;
-      width:56px; height:56px; border-radius:50%; color:white; font-size:1.7rem; cursor:pointer;
-      backdrop-filter:blur(12px); z-index:1000;
+    footer {
+      margin-top: 80px;
+      padding: 40px;
+      opacity: 0.8;
+      font-size: 1rem;
     }
+    footer a { color: white; text-decoration: underline; }
 
-    .loader { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92);
-      backdrop-filter:blur(15px); display:none; justify-content:center; align-items:center; z-index:9999; }
-    .loader.active { display:flex; }
-    .spinner { width:80px; height:80px; border:8px solid #333; border-top:8px solid var(--primary); border-radius:50%; animation:spin 1s ease-in-out infinite; }
-    @keyframes spin { to { transform:rotate(360deg); } }
-
-    footer { text-align:center; padding:60px 20px; opacity:0.85; font-size:1rem; }
-    @media (max-width:768px) {
-      header h1 { font-size:2.4rem; }
-      .input-group { flex-direction:column; }
-      #goBtn { width:100%; max-width:340px; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .input-box { flex-direction: column; }
+      #downloadBtn { width: 100%; max-width: 340px; margin: 0 auto; }
     }
   </style>
 </head>
 <body>
 
-  <button id="themeToggle">Moon</button>
-  <div class="loader" id="loader"><div class="spinner"></div></div>
-
   <div class="container">
-    <header>
-      <h1>Free Video Downloader</h1>
-      <p>Download videos from YouTube, TikTok, Instagram, Facebook & 1000+ sites in HD – completely free!</p>
-    </header>
+    <h1>Free Video Downloader</h1>
+    <p>Paste any video link & download instantly in best quality!</p>
 
     <div class="card">
-      <div class="input-group">
+      <div class="input-box">
         <input type="text" id="urlInput" placeholder="Paste video link here..." autocomplete="off"/>
-        <button id="goBtn">Download Video</button>
+        <button id="downloadBtn">Download Video</button>
       </div>
       <div id="status"></div>
-      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="loader" id="loader"><div class="spinner"></div></div>
     </div>
 
-    <div id="preview">
-      <img id="thumb" src="" alt="Thumbnail">
-      <h2 id="videoTitle"></h2>
-      <div class="quality">
-        <button class="qbtn" data-q="1080">1080p Best</button>
-        <button class="qbtn" data-q="720">720p HD</button>
-        <button class="qbtn" data-q="360">360p Fast</button>
-        <button class="qbtn" data-q="audio">Audio MP3</button>
-      </div>
-    </div>
-
-    <h2 style="text-align:center; margin:60px 0 40px; font-size:2.2rem;">Supported Platforms</h2>
+    <h2 style="margin:70px 0 40px; font-size:2.2rem;">Supported Platforms</h2>
     <div class="platforms">
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/youtube.svg" alt="YouTube"><span>YouTube</span></div>
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/tiktok.svg" alt="TikTok"><span>TikTok</span></div>
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/instagram.svg" alt="Instagram"><span>Instagram</span></div>
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/facebook.svg" alt="Facebook"><span>Facebook</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/twitter.svg" alt="Twitter"><span>Twitter / X</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/twitter.svg" alt="Twitter"><span>Twitter/X</span></div>
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/vimeo.svg" alt="Vimeo"><span>Vimeo</span></div>
       <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/globe.svg" alt="More"><span>+1000 Sites</span></div>
     </div>
 
-    <h2 style="text-align:center; margin:80px 0 40px; font-size:2.2rem;">How to Use</h2>
-    <div class="how-to">
-      <div class="step"><div class="step-number">1</div><h3>Copy Video Link</h3><p>Open the video and copy its URL</p></div>
-      <div class="step"><div class="step-number">2</div><h3>Paste Here</h3><p>Paste the link in the box above</p></div>
-      <div class="step"><div class="step-number">3</div><h3>Download!</h3><p>Choose quality and save video</p></div>
-    </div>
-
     <footer>
-      © 2025 Free Video Downloader • Fast • Secure • No Registration Required<br>
+      © 2025 Free Video Downloader • Fast • Secure • No Registration<br>
       <a href="/privacy.html">Privacy Policy</a> • <a href="/dmca.html">DMCA</a> • <a href="/disclaimer.html">Disclaimer</a>
     </footer>
   </div>
 
   <script>
     const loader = document.getElementById('loader');
-    const bar = document.getElementById('bar');
-    let currentUrl = '';
+    const status = document.getElementById('status');
+    const btn = document.getElementById('downloadBtn');
 
-    document.getElementById('goBtn').onclick = async () => {
+    btn.onclick = async () => {
       const url = document.getElementById('urlInput').value.trim();
-      if (!url) return;
-      loader.classList.add('active');
-      currentUrl = url;
+      if (!url) {
+        status.innerHTML = '<span style="color:#ff6b6b">Please paste a video link!</span>';
+        return;
+      }
 
-      const res = await fetch('/info', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
-      const data = await res.json();
-      loader.classList.remove('active');
-      if (res.ok) {
-        document.getElementById('thumb').src = data.thumbnail || '';
-        document.getElementById('videoTitle').textContent = data.title || 'Video';
-        document.getElementById('preview').style.display = 'block';
-        document.getElementById('status').innerHTML = '<span style="color:#4ade80">Select quality below</span>';
+      status.textContent = 'Downloading your video...';
+      loader.style.display = 'block';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/download', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({url: url, quality: 'best'})
+        });
+
+        if (res.ok) {
+          const blob = await res.blob();
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'video.mp4';
+          a.click();
+          status.innerHTML = '<span style="color:#51cf66">Download Started!</span>';
+        } else {
+          status.innerHTML = '<span style="color:#ff6b6b">Error: Invalid or private video</span>';
+        }
+      } catch (e) {
+        status.innerHTML = '<span style="color:#ff6b6b">Network error. Try again.</span>';
+      } finally {
+        loader.style.display = 'none';
+        btn.disabled = false;
       }
     };
 
-    document.querySelectorAll('.qbtn').forEach(btn => {
-      btn.onclick = () => {
-        loader.classList.add('active');
-        document.querySelector('.progress').style.display = 'block';
-        bar.style.width = '0%';
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/download', true);
-        xhr.responseType = 'blob';
-        xhr.onprogress = e => { if (e.lengthComputable) bar.style.width = (e.loaded/e.total*100)+'%'; };
-        xhr.onload = () => {
-          loader.classList.remove('active');
-          if (xhr.status===200) {
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(xhr.response);
-            a.download = document.getElementById('videoTitle').textContent + (btn.dataset.q==='audio'?'.mp3':'.mp4');
-            a.click();
-            document.getElementById('status').innerHTML = '<span style="color:#4ade80">Download Started!</span>';
-          }
-        };
-        xhr.send(JSON.stringify({url: currentUrl, quality: btn.dataset.q}));
-      };
+    // Enter key support
+    document.getElementById('urlInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') btn.click();
     });
-
-    document.getElementById('urlInput').addEventListener('keypress', e => { if (e.key==='Enter') document.getElementById('goBtn').click(); });
   </script>
 </body>
 </html>
-
