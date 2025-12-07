@@ -14,6 +14,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- GOOGLE ADSENSE AUTO ADS (ON) – Sirf yeh ek baar lagana hai -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-565656565651"
+       crossorigin="anonymous"></script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-565656565651",
+            enable_page_level_ads: true
+       });
+  </script>
+
   <style>
     :root { --primary: #ff3366; }
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -62,16 +72,13 @@
     #preview { display:none; text-align:center; margin:60px 0; }
     #thumb { border-radius:20px; max-width:90%; max-height:500px; box-shadow:0 25px 60px rgba(0,0,0,0.6); }
     #videoTitle { margin:30px 0 25px; font-size:2rem; font-weight:600; }
-    .quality {
-      display:flex; gap:20px; justify-content:center; flex-wrap:wrap;
-    }
+    .quality { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
     .qbtn {
       padding:18px 40px; background:rgba(255,255,255,0.15); border:2px solid rgba(255,255,255,0.3);
       color:white; border-radius:50px; font-weight:600; cursor:pointer; transition:0.4s;
     }
     .qbtn:hover { background:var(--primary); border-color:var(--primary); transform:scale(1.08); }
 
-    /* Real Platform Logos */
     .platforms {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 70px 0;
     }
@@ -85,14 +92,11 @@
       backdrop-filter: blur(10px);
     }
     .plat:hover { transform: translateY(-12px); background: rgba(255,255,255,0.25); }
-    .plat img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4)); }
-    .plat span { display: block; font-weight: 600; font-size: 1.1rem; }
+    .plat img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 12px; }
 
     .how-to { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:35px; margin:80px 0; }
     .step { background:rgba(255,255,255,0.1); padding:35px; border-radius:18px; text-align:center; }
     .step-number { width:60px; height:60px; background:var(--primary); color:white; border-radius:50%; line-height:60px; font-size:1.8rem; margin:0 auto 25px; }
-
-    .ad-banner { margin:70px auto; max-width:900px; text-align:center; }
 
     #themeToggle {
       position: fixed; top:25px; right:25px; background:rgba(255,255,255,0.2); border:none;
@@ -111,7 +115,6 @@
       header h1 { font-size:2.4rem; }
       .input-group { flex-direction:column; }
       #goBtn { width:100%; max-width:340px; }
-      .plat { width:130px; padding:20px; }
     }
   </style>
 </head>
@@ -135,7 +138,6 @@
       <div class="progress"><div class="bar" id="bar"></div></div>
     </div>
 
-    <!-- Preview + Quality -->
     <div id="preview">
       <img id="thumb" src="" alt="Thumbnail">
       <h2 id="videoTitle"></h2>
@@ -147,34 +149,15 @@
       </div>
     </div>
 
-    <!-- Top Ad -->
-    <div class="ad-banner">
-      <!-- Your AdSense/Adsterra code -->
-    </div>
-
     <h2 style="text-align:center; margin:60px 0 40px; font-size:2.2rem;">Supported Platforms</h2>
     <div class="platforms">
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/youtube.svg" alt="YouTube"><span>YouTube</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/tiktok.svg" alt="TikTok"><span>TikTok</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/instagram.svg" alt="Instagram"><span>Instagram</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/facebook.svg" alt="Facebook"><span>Facebook</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/twitter.svg" alt="Twitter"><span>Twitter / X</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/vimeo.svg" alt="Vimeo"><span>Vimeo</span>
-      </div>
-      <div class="plat">
-        <img src="https://cdn.jsdelivr.net/gh/centerepit/icons/globe.svg" alt="More"><span>+1000 Sites</span>
-      </div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/youtube.svg" alt="YouTube"><span>YouTube</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/tiktok.svg" alt="TikTok"><span>TikTok</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/instagram.svg" alt="Instagram"><span>Instagram</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/facebook.svg" alt="Facebook"><span>Facebook</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/twitter.svg" alt="Twitter"><span>Twitter / X</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/vimeo.svg" alt="Vimeo"><span>Vimeo</span></div>
+      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/globe.svg" alt="More"><span>+1000 Sites</span></div>
     </div>
 
     <h2 style="text-align:center; margin:80px 0 40px; font-size:2.2rem;">How to Use</h2>
@@ -184,65 +167,59 @@
       <div class="step"><div class="step-number">3</div><h3>Download!</h3><p>Choose quality and save video</p></div>
     </div>
 
-    <!-- Bottom Ad -->
-    <div class="ad-banner">
-      <!-- Your second ad -->
-    </div>
-
     <footer>
       © 2025 Free Video Downloader • Fast • Secure • No Registration Required<br>
       <a href="/privacy.html">Privacy Policy</a> • <a href="/dmca.html">DMCA</a> • <a href="/disclaimer.html">Disclaimer</a>
     </footer>
   </div>
 
-<script>
-  // Same script as before (working perfectly)
-  const loader = document.getElementById('loader');
-  const bar = document.getElementById('bar');
-  let currentUrl = '';
+  <script>
+    const loader = document.getElementById('loader');
+    const bar = document.getElementById('bar');
+    let currentUrl = '';
 
-  document.getElementById('goBtn').onclick = async () => {
-    const url = document.getElementById('urlInput').value.trim();
-    if (!url) return;
-    loader.classList.add('active');
-    currentUrl = url;
-
-    const res = await fetch('/info', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
-    const data = await res.json();
-    loader.classList.remove('active');
-    if (res.ok) {
-      document.getElementById('thumb').src = data.thumbnail || '';
-      document.getElementById('videoTitle').textContent = data.title || 'Video';
-      document.getElementById('preview').style.display = 'block';
-      document.getElementById('status').innerHTML = '<span style="color:#4ade80">Select quality below</span>';
-    }
-  };
-
-  document.querySelectorAll('.qbtn').forEach(btn => {
-    btn.onclick = () => {
+    document.getElementById('goBtn').onclick = async () => {
+      const url = document.getElementById('urlInput').value.trim();
+      if (!url) return;
       loader.classList.add('active');
-      document.querySelector('.progress').style.display = 'block';
-      bar.style.width = '0%';
+      currentUrl = url;
 
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', '/download', true);
-      xhr.responseType = 'blob';
-      xhr.onprogress = e => { if (e.lengthComputable) bar.style.width = (e.loaded/e.total*100)+'%'; };
-      xhr.onload = () => {
-        loader.classList.remove('active');
-        if (xhr.status===200) {
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(xhr.response);
-          a.download = document.getElementById('videoTitle').textContent + (btn.dataset.q==='audio'?'.mp3':'.mp4');
-          a.click();
-          document.getElementById('status').innerHTML = '<span style="color:#4ade80">Download Started!</span>';
-        }
-      };
-      xhr.send(JSON.stringify({url: currentUrl, quality: btn.dataset.q}));
+      const res = await fetch('/info', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url})});
+      const data = await res.json();
+      loader.classList.remove('active');
+      if (res.ok) {
+        document.getElementById('thumb').src = data.thumbnail || '';
+        document.getElementById('videoTitle').textContent = data.title || 'Video';
+        document.getElementById('preview').style.display = 'block';
+        document.getElementById('status').innerHTML = '<span style="color:#4ade80">Select quality below</span>';
+      }
     };
-  });
 
-  document.getElementById('urlInput').addEventListener('keypress', e => { if (e.key==='Enter') document.getElementById('goBtn').click(); });
-</script>
+    document.querySelectorAll('.qbtn').forEach(btn => {
+      btn.onclick = () => {
+        loader.classList.add('active');
+        document.querySelector('.progress').style.display = 'block';
+        bar.style.width = '0%';
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/download', true);
+        xhr.responseType = 'blob';
+        xhr.onprogress = e => { if (e.lengthComputable) bar.style.width = (e.loaded/e.total*100)+'%'; };
+        xhr.onload = () => {
+          loader.classList.remove('active');
+          if (xhr.status===200) {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(xhr.response);
+            a.download = document.getElementById('videoTitle').textContent + (btn.dataset.q==='audio'?'.mp3':'.mp4');
+            a.click();
+            document.getElementById('status').innerHTML = '<span style="color:#4ade80">Download Started!</span>';
+          }
+        };
+        xhr.send(JSON.stringify({url: currentUrl, quality: btn.dataset.q}));
+      };
+    });
+
+    document.getElementById('urlInput').addEventListener('keypress', e => { if (e.key==='Enter') document.getElementById('goBtn').click(); });
+  </script>
 </body>
 </html>
