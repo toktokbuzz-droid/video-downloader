@@ -3,18 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Video Downloader – YouTube, TikTok, Instagram & More</title>
-  <meta name="description" content="Download videos from YouTube, TikTok, Instagram, Facebook & 1000+ sites in HD with just one click. Fast, free, no signup!"/>
+  <title>Free Video Downloader – One Click HD Download</title>
+  <meta name="description" content="Paste any video link & download instantly in best quality. YouTube, TikTok, Instagram, Facebook & more."/>
 
-  <!-- SEO -->
-  <meta property="og:title" content="Free Video Downloader – One Click HD Download" />
-  <meta property="og:description" content="Paste link → Click Download → Video saved instantly!" />
-  <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Google AdSense Auto Ads (ON) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8700297475775171"
+  <!-- Google AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-ca-pub-8700297475775171"
        crossorigin="anonymous"></script>
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({
@@ -23,6 +16,7 @@
        });
   </script>
 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -35,16 +29,8 @@
     }
     .container { max-width: 1000px; margin: 0 auto; }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    p {
-      font-size: 1.3rem;
-      opacity: 0.9;
-      margin-bottom: 50px;
-    }
+    h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+    p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 50px; }
 
     .card {
       background: rgba(255,255,255,0.12);
@@ -56,91 +42,33 @@
     }
 
     .input-box {
-      display: flex;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: flex; gap: 20px; max-width: 800px; margin: 0 auto 30px;
+      flex-wrap: wrap; justify-content: center;
     }
     #urlInput {
-      flex: 1;
-      min-width: 300px;
-      padding: 20px 25px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 50px;
-      background: rgba(255,255,255,0.2);
-      color: white;
-      outline: none;
+      flex: 1; min-width: 300px; padding: 20px 25px; font-size: 1.2rem;
+      border: none; border-radius: 50px; background: rgba(255,255,255,0.2); color: white;
     }
     #urlInput::placeholder { color: rgba(255,255,255,0.7); }
 
     #downloadBtn {
-      padding: 20px 60px;
-      background: #ff3366;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: 600;
-      cursor: pointer;
+      padding: 20px 60px; background: #ff3366; color: white; border: none;
+      border-radius: 50px; font-size: 1.3rem; font-weight: 600; cursor: pointer;
       box-shadow: 0 10px 30px rgba(255,51,102,0.5);
-      transition: 0.3s;
     }
-    #downloadBtn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,51,102,0.6); }
-    #downloadBtn:active { transform: translateY(-2px); }
+    #downloadBtn:hover { transform: translateY(-5px); }
 
-    #status {
-      margin-top: 25px;
-      font-size: 1.4rem;
-      min-height: 50px;
-    }
-
-    .loader {
-      display: none;
-      margin: 40px auto;
-    }
+    #status { margin-top: 25px; font-size: 1.4rem; min-height: 50px; }
+    .loader { display: none; margin: 40px auto; }
     .spinner {
-      width: 60px;
-      height: 60px;
-      border: 6px solid rgba(255,255,255,0.3);
-      border-top: 6px solid #ff3366;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
+      width: 60px; height: 60px; border: 6px solid rgba(255,255,255,0.3);
+      border-top: 6px solid #ff3366; border-radius: 50%;
+      animation: spin 1s linear infinite; margin: 0 auto;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .platforms {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin: 80px 0;
-    }
-    .plat {
-      background: rgba(255,255,255,0.15);
-      padding: 20px 30px;
-      border-radius: 18px;
-      width: 150px;
-      backdrop-filter: blur(10px);
-    }
-    .plat img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 10px; }
-
-    footer {
-      margin-top: 80px;
-      padding: 40px;
-      opacity: 0.8;
-      font-size: 1rem;
-    }
+    footer { margin-top: 100px; padding: 40px; opacity: 0.8; }
     footer a { color: white; text-decoration: underline; }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 2.4rem; }
-      .input-box { flex-direction: column; }
-      #downloadBtn { width: 100%; max-width: 340px; margin: 0 auto; }
-    }
   </style>
 </head>
 <body>
@@ -156,17 +84,6 @@
       </div>
       <div id="status"></div>
       <div class="loader" id="loader"><div class="spinner"></div></div>
-    </div>
-
-    <h2 style="margin:70px 0 40px; font-size:2.2rem;">Supported Platforms</h2>
-    <div class="platforms">
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/youtube.svg" alt="YouTube"><span>YouTube</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/tiktok.svg" alt="TikTok"><span>TikTok</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/instagram.svg" alt="Instagram"><span>Instagram</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/facebook.svg" alt="Facebook"><span>Facebook</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/twitter.svg" alt="Twitter"><span>Twitter/X</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/vimeo.svg" alt="Vimeo"><span>Vimeo</span></div>
-      <div class="plat"><img src="https://cdn.jsdelivr.net/gh/centerepit/icons/globe.svg" alt="More"><span>+1000 Sites</span></div>
     </div>
 
     <footer>
@@ -195,7 +112,7 @@
         const res = await fetch('/download', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({url: url, quality: 'best'})
+          body: JSON.stringify({url: url})   // sirf URL bhej raha hai, quality nahi
         });
 
         if (res.ok) {
@@ -216,7 +133,6 @@
       }
     };
 
-    // Enter key support
     document.getElementById('urlInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') btn.click();
     });
