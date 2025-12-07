@@ -15,7 +15,70 @@
             enable_page_level_ads: true
        });
   </script>
+<script>
+// Adsterra Popunder Code (Tera Real Code)
+const ADSTERRA_POPUNDER = `
+<script async="async" data-cfasync="false" src="//pl28207571.effectivegatecpm.com/2a1ae5f39b4e2f4fc578d6125ce0c2fe/invoke.js"><\/script>
+<div id="container-2a1ae5f39b4e2f4fc578d6125ce0c2fe"></div>
+`;
 
+let downloadReady = false;
+let videoUrl = '';
+
+document.getElementById('downloadBtn').onclick = () => {
+  videoUrl = document.getElementById('urlInput').value.trim();
+  if (!videoUrl) {
+    document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">Paste a video link first!</span>';
+    return;
+  }
+
+  // Adsterra Popunder Load Karo
+  document.getElementById('status').innerHTML = '<span style="color:#ffd43b">Opening ad... Please wait</span>';
+  
+  // Ad code inject karo body mein
+  const adDiv = document.createElement('div');
+  adDiv.innerHTML = ADSTERRA_POPUNDER;
+  document.body.appendChild(adDiv);
+
+  // 8 second baad download start (Adsterra popunder usually 5–10 sec mein khulta hai)
+  setTimeout(() => {
+    if (!downloadReady) {
+      downloadReady = true;
+      startDownload();
+    }
+  }, 8000);
+
+  // Fallback: agar user ad close kare tab bhi download de de
+  window.addEventListener('focus', () => {
+    if (!downloadReady) {
+      downloadReady = true;
+      startDownload();
+    }
+  }, { once: true });
+};
+
+function startDownload() {
+  document.getElementById('status').innerHTML = '<span style="color:#51cf66">Download starting...</span>';
+
+  fetch('/download', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({url: videoUrl})
+  })
+  .then(r => r.blob())
+  .then(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'video.mp4';
+    a.click();
+    document.getElementById('status').innerHTML = '<span style="color:#51cf66">Download Complete!</span>';
+  })
+  .catch(() => {
+    document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">Error, try again</span>';
+  });
+}
+</script>
+<div id="container-2a1ae5f39b4e2f4fc578d6125ce0c2fe"></div>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -219,3 +282,4 @@ function startDownload() {
 </script>
 </body>
 </html>
+
