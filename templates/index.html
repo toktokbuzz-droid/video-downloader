@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Video Downloader – One Click HD Download</title>
-  <meta name="description" content="Paste any video link & download instantly in best quality. YouTube, TikTok, Instagram, Facebook & more."/>
+  <title>Free Video Downloader – Watch Ad & Download Instantly</title>
+  <meta name="description" content="Paste any video link, watch short ad & download in HD. YouTube, TikTok, Instagram, Facebook & more!"/>
 
   <!-- Google AdSense Auto Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-ca-pub-8700297475775171"
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8700297475775171"
        crossorigin="anonymous"></script>
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({
@@ -27,7 +27,7 @@
       padding: 30px 20px;
       text-align: center;
     }
-    .container { max-width: 1000px; margin: 0 auto; }
+    .container { max-width: 1100px; margin: 0 auto; }
 
     h1 { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
     p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 50px; }
@@ -39,6 +39,7 @@
       padding: 50px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 60px;
     }
 
     .input-box {
@@ -59,23 +60,55 @@
     #downloadBtn:hover { transform: translateY(-5px); }
 
     #status { margin-top: 25px; font-size: 1.4rem; min-height: 50px; }
-    .loader { display: none; margin: 40px auto; }
-    .spinner {
-      width: 60px; height: 60px; border: 6px solid rgba(255,255,255,0.3);
-      border-top: 6px solid #ff3366; border-radius: 50%;
-      animation: spin 1s linear infinite; margin: 0 auto;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
 
-    footer { margin-top: 100px; padding: 40px; opacity: 0.8; }
+    /* Rewarded Ad */
+    .ad-container { margin: 50px auto; max-width: 700px; }
+    #rewardedAd { width: 100%; height: 450px; border: none; border-radius: 20px; display: none; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+
+    /* How to Download Section */
+    .how-section {
+      margin: 100px 0;
+      background: rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 50px;
+      backdrop-filter: blur(10px);
+    }
+    .how-section h2 { font-size: 2.4rem; margin-bottom: 40px; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    .step {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+    }
+    .step-number {
+      width: 50px; height: 50px; background: #ff3366; color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: bold; margin-bottom: 15px;
+    }
+    .step h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .step p { opacity: 0.9; font-size: 1rem; }
+
+    footer { margin-top: 80px; padding: 40px; opacity: 0.8; }
     footer a { color: white; text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      .input-box { flex-direction: column; }
+      #downloadBtn { width: 100%; max-width: 340px; margin: 0 auto; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1>Free Video Downloader</h1>
-    <p>Paste any video link & download instantly in best quality!</p>
+    <p>Paste any video link → Watch short ad → Download instantly!</p>
 
     <div class="card">
       <div class="input-box">
@@ -83,66 +116,106 @@
         <button id="downloadBtn">Download Video</button>
       </div>
       <div id="status"></div>
-      <div class="loader" id="loader"><div class="spinner"></div></div>
+
+      <!-- Rewarded Video Ad -->
+      <div class="ad-container">
+        <iframe id="rewardedAd" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- How to Download Section -->
+    <div class="how-section">
+      <h2>How to Download Video</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Open Video</h3>
+          <p>Open YouTube, TikTok, Instagram or Facebook video</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Copy Link</h3>
+          <p>Click Share → Copy Link (or copy from browser)</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Paste Here</h3>
+          <p>Paste the link in box above & click Download</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Watch Short Ad</h3>
+          <p>Watch 15–30 sec ad (supports free service)</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Download Video</h3>
+          <p>Your video will download automatically in HD!</p>
+        </div>
+      </div>
     </div>
 
     <footer>
-      © 2025 Free Video Downloader • Fast • Secure • No Registration<br>
-      <a href="/privacy.html">Privacy Policy</a> • <a href="/dmca.html">DMCA</a> • <a href="/disclaimer.html">Disclaimer</a>
+      © 2025 Free Video Downloader • Watch ad & download unlimited<br>
+      <a href="/privacy.html">Privacy Policy</a> • <a href="/dmca.html">DMCA</a>
     </footer>
   </div>
 
-  <script>
-    const loader = document.getElementById('loader');
-    const status = document.getElementById('status');
-    const btn = document.getElementById('downloadBtn');
+<script>
+// ← YAHAN APNA REAL REWARDED AD LINK DAAL (PropellerAds, Adsterra, ExoClick)
+const REWARDED_AD_URL = "https://www.highcpmgate.com/swue2yfd7?key=YOUR_REAL_KEY_HERE";
 
-    btn.onclick = async () => {
-      const url = document.getElementById('urlInput').value.trim();
-      if (!url) {
-        status.innerHTML = '<span style="color:#ff6b6b">Please paste a video link!</span>';
-        return;
+let downloadReady = false;
+let videoUrl = '';
+
+document.getElementById('downloadBtn').onclick = () => {
+  videoUrl = document.getElementById('urlInput').value.trim();
+  if (!videoUrl) {
+    document.getElementById('status').innerHTML = '<span style="color:#ff6b6b">Paste a video link first!</span>';
+    return;
+  }
+
+  document.getElementById('status').innerHTML = '<span style="color:#ffd43b">Watch short ad to download...</span>';
+  document.getElementById('rewardedAd').src = REWARDED_AD_URL;
+  document.getElementById('rewardedAd').style.display = 'block';
+
+  // Ad complete hone pe download
+  window.addEventListener('message', function(e) {
+    if (e.data === 'ad_complete' || e.data === 'close_ad') {
+      if (!downloadReady) {
+        downloadReady = true;
+        startDownload();
       }
+    }
+  }, { once: true });
 
-      status.textContent = 'Downloading your video...';
-      loader.style.display = 'block';
-      btn.disabled = true;
+  // Fallback: 35 sec baad bhi download de de
+  setTimeout(() => {
+    if (!downloadReady) {
+      downloadReady = true;
+      startDownload();
+    }
+  }, 35000);
+};
 
-      try {
-        const res = await fetch('/download', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({url: url})   // sirf URL bhej raha hai, quality nahi
-        });
+function startDownload() {
+  document.getElementById('status').innerHTML = '<span style="color:#51cf66">Download starting...</span>';
+  document.getElementById('rewardedAd').style.display = 'none';
 
-        if (res.ok) {
-          const blob = await res.blob();
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = 'video.mp4';
-          a.click();
-          status.innerHTML = '<span style="color:#51cf66">Download Started!</span>';
-        } else {
-          status.innerHTML = '<span style="color:#ff6b6b">Error: Invalid or private video</span>';
-        }
-      } catch (e) {
-        status.innerHTML = '<span style="color:#ff6b6b">Network error. Try again.</span>';
-      } finally {
-        loader.style.display = 'none';
-        btn.disabled = false;
-      }
-    };
-
-    document.getElementById('urlInput').addEventListener('keypress', e => {
-      if (e.key === 'Enter') btn.click();
-    });
-  </script>
-  <script
-  async="async"
-  data-cfasync="false"
-  src="//pl28207571.effectivegatecpm.com/2a1ae5f39b4e2f4fc578d6125ce0c2fe/invoke.js"
-></script>
-<div id="container-2a1ae5f39b4e2f4fc578d6125ce0c2fe"></div>
+  fetch('/download', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({url: videoUrl})
+  })
+  .then(r => r.blob())
+  .then(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'video.mp4';
+    a.click();
+    document.getElementById('status').innerHTML = '<span style="color:#51cf66">Download Complete!</span>';
+  });
+}
+</script>
 </body>
 </html>
-
