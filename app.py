@@ -34,35 +34,41 @@ def get_info():
                 'thumbnail': info.get('thumbnail', '')
             })
     except:
-        return jsonify({'error': 'Invalid link or private video'}), 400
+        return jsonify({'error': 'Invalid or private video'}), 400
 
 @app.route('/download', methods=['POST'])
 def download_video():
     data = request.json
     url = data.get('url')
-    quality = data.get('quality', '1080')
-
-    # Temporary folder
-    temp_dir = tempfile.mkdtemp()
+    quality = data.get('quality', 'best')  # 1080, 720, 360, audio
 
     temp_dir = tempfile.mkdtemp()
 
     try:
+        # Yeh wahi magic format string jo tu diya tha — 100% single .mp4
+        format_selector = (
+            'bestvideo[ext=mp4]+bestaudio[ext=m4a]/'
+            'bestvideo+bestaudio/'
+            'best[ext=mp4]/best'
+        )
+
         ydl_opts = {
-            'format': 'best[height<=1080]',
+            'format': format_selector,
+            'merge_output_format': 'mp4',           # ← Force single mp4
             'outtmpl': os.path.join(temp_dir, '%(title)s.%(ext)s'),
             'noplaylist': True,
+            'concurrent_fragment_downloads': 5,
+            'retries': 10,
             'quiet': True,
             'no_warnings': True,
             'extractor_args': {
-                'youtube': {
-                    'player_client': ['android', 'web'],
-                }
+                'youtube': {'player_client': ['android', 'web']},
+                'tiktok': {'player_client': ['web']},
             },
         }
 
-        # Quality selection
-        if quality == 'audio':
+        # Quality override
+        if quality == 'audio' in quality.lower():
             ydl_opts['format'] = 'bestaudio'
             ydl_opts['postprocessors'] = [{
                 'key': 'FFmpegExtractAudio',
@@ -70,29 +76,35 @@ def download_video():
                 'preferredquality': '192',
             }]
         elif quality == '360':
-            ydl_opts['format'] = 'best[height<=360]'
+            ydl_opts['format'] = f"best[height<=360][ext=mp4]+bestaudio/best[height<=360]"
         elif quality == '720':
-            ydl_opts['format'] = 'best[height<=720]'
+            ydl_opts['format'] = f"best[height<=720][ext=mp4]+bestaudio/best[height<=720]"
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
 
-        # Find the downloaded file
+        # Find the actual downloaded file
+        downloaded_file = None
         for file in os.listdir(temp_dir):
             if file.endswith(('.mp4', '.mkv', '.webm', '.mp3')):
-                filepath = os.path.join(temp_dir, file)
-                return send_file(
-                    filepath,
-                    as_attachment=True,
-                    download_name=f"{info.get('title', 'video')}.{ 'mp3' if quality == 'audio' else 'mp4'}"
-                )
+                downloaded_file = os.path.join(temp_dir, file)
+                break
 
-        return jsonify({'error': 'File not found after download'}), 500
+        if not downloaded_file or not os.path.exists(downloaded_file):
+            return jsonify({'error': 'Download failed or file not found'}), 500
+
+        # 500
+
+        # Send file
+        return send_file(
+            downloaded_file,
+            as_attachment=True,
+            download_name=f"{info.get('title', 'video').replace('/', '_')}.{'mp3' if 'audio' in quality.lower() else 'mp4'}"
+        )
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     finally:
-        # Cleanup
         try:
             shutil.rmtree(temp_dir)
         except:
